@@ -1,3 +1,38 @@
+import React from 'react';
+import { shallow } from 'enzyme';
+import App from '../App';
+import CommentBox from '../CommentBox';
+import CommentList from '../CommentList';
+
+it('shows a comment box', () => {
+    const wrapped = shallow(<App/>);
+    expect(wrapped.find(CommentBox).length).toEqual(1);
+});
+
+it('shows a comment list', () => {
+    const wrapped = shallow(<App/>);
+    expect(wrapped.find(CommentList).length).toEqual(1);
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 Since it is in the __test__ we did not need it to be
 
@@ -19,27 +54,4 @@ that exists in the command line, and not in any browser! No Chrome or Firefox or
 
 
 */
-
-import React from 'react';
-import ReactDOM from 'react-dom';
-
-import App from '../App';
-
-it('shows a box', () => {
-    const div = document.createElement('div');
-
-    ReactDOM.render(<App/>, div);
-
-    // Now we can write code that will inspect that div element!
-    // and checks that the comment box is in there!
-    expect(div.innerHTML).toContain('Comment Box');
-
-    ReactDOM.unmountComponentAtNode(div);
-});
-
 // Expectations: Proof that the code is working as we expect
-/*
-expect() - A global function
-s
-
-*/ 
