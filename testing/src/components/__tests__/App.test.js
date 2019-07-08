@@ -32,7 +32,14 @@ it('shows a box', () => {
 
     // Now we can write code that will inspect that div element!
     // and checks that the comment box is in there!
-    console.log(div.innerHTML);
+    expect(div.innerHTML).toContain('Comment Box');
 
     ReactDOM.unmountComponentAtNode(div);
 });
+
+// Expectations: Proof that the code is working as we expect
+/*
+expect() - A global function
+s
+
+*/ 
