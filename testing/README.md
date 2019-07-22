@@ -66,3 +66,37 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+Move forward with Higher Order Components
+
+It is a normal react component that is used to have code reuse.
+
+When we create HOC, we combine them with normal components.
+
+When we combine them then it will become a composed component
+
+Lecture 66:
+
+Connect - Higher order component (HOC)
+
+We could have written out a bunch of code that would have reached up to the redux store
+but instead we used an open source library to make things easier for us.
+
+Lecture 67:
+
+What application will we build to learn to build with HOC
+
+At local host 3000, we will show them the orginal application,
+
+Where do things get interesting? Things will get more interesting
+
+When the user tried to get to the /post route...
+
+Is the user logged in?
+
+if(loggedin) => {Allow user access}
+
+else: Redirect the user back to the home page.
+
+Rquire Auth is going to be a higher order component. We use HOC to reuse code, but if we wanted to we can think of a situation where a user can use to restrict access to control the flow of the application. While we won't exactly use it right now, we can have many situations that we can imagine that we would have a feature that we would want to use this for.
