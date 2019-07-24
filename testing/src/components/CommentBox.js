@@ -5,20 +5,20 @@ import * as actions from 'actions';
 class CommentBox extends Component {
     state = { comment: '' };
 
+    // Our component just got rendered
     componentDidMount() {
-        //this.props.auth.isSignedIn = false;
         this.shouldNavigateAway();
     }
 
+    // Our component just got updated
     componentDidUpdate() {
-       this.shouldNavigateAway(); 
+       this.shouldNavigateAway();
+       console.log(this.props.auth);
     }
 
     shouldNavigateAway() {
         if(this.props.auth) {
-            console.log('I need to leave!');
-        } else {
-
+            this.props.history.push('/');
         }
     }
 
