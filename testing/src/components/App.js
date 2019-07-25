@@ -35,7 +35,6 @@ class App extends Component {
                 </li>
                 <li>
                     {this.renderButton()}
-                    <Link></Link>
                 </li>                
             </ul>
         )
