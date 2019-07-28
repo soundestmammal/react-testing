@@ -1,11 +1,15 @@
-/* export default function({ dispatch }) {
-    return function (next) { // next is a function
-        return function(action) {
-            return action;
-        }
-    }
-}
-*/
+// export default function({ dispatch }) {
+//     return function (next) { // next is a function
+//         return function(action) {
+
+//         }
+//     }
+// }
+
+// export default ({ dispatch }) => next => action => {
+
+// }
+
 
 export default ({dispatch}) => next => action => {
     // Check to see if the action
