@@ -5,9 +5,14 @@ const morgan = require('morgan');
 const app = express();
 const router = require('./router');
 const mongoose = require('mongoose');
+const key = require('./info/keys');
 
 // DB setup
-
+//console.log(key);
+// console.log(`mongodb+srv://pg:${key}@cluster0-ciic4.mongodb.net/test?retryWrites=true&w=majority`);
+mongoose.connect(`mongodb+srv://pg:${key}@cluster0-ciic4.mongodb.net/test?retryWrites=true&w=majority`, { useNewUrlParser: true})
+.then(() => console.log("SUCCESSFULLY CONNECTED TO THE DATABASE"))
+.catch(e => console.log("There was an error in connecting to the database", e),);
 
 // Application Setup
 app.use(morgan('combined'));
