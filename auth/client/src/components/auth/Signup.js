@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
-
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
 
 class Signup extends Component {
-
 
     onSubmit = (formProps) => {
         console.log(formProps);
@@ -11,6 +11,7 @@ class Signup extends Component {
 
     render() {
         const { handleSubmit } = this.props;
+        
         return (
             <form onSubmit={handleSubmit(this.onSubmit)}>
                 <fieldset>
