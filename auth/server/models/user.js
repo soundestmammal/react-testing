@@ -9,15 +9,20 @@ const userSchema = new Schema({
 });
 
 // On Save Hook, encrypt password
+// Before saving the model, run this function
 userSchema.pre('save', function(next) {
+    // Establish reference to the user model
     const user = this;
 
+    // Generate a salt, then run call 
     bcrypt.genSalt(10, function(err, salt) {
         if(err) { return next(err); }
 
+        // hash the users pw, (encrypt) using the salt
         bcrypt.hash(user.password, salt, null, function(err, hash) {
             if (err) { return next(err); }
             
+            // overwrite the plain text password with the encrypted password
             user.password = hash;
             next();
         })
