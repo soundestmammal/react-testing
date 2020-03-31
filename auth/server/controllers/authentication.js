@@ -1,4 +1,18 @@
+const JWT = require('jwt-simple');
 const User = require('../models/user');
+const config = require('../config');
+
+// Returns a JWT, provided the user
+function tokenForUser(user) {
+    const timestamp = new Date().getTime();
+    return JWT.encode({ sub: user.id, iat: timestamp }, config.secret);
+}
+
+exports.signin = function(req, res, next) {
+    // user has already had their email and password auth'd
+    // We just need to give them a token
+    res.send({ token: tokenForUser(req.user) });
+}
 
 exports.signup = function(req, res, next) {
     const email = req.body.email;
@@ -24,7 +38,7 @@ exports.signup = function(req, res, next) {
     });
 
     user.save(function(err) {
-        res.send({ status: "success"});
+        res.json({ token: tokenForUser(user) });
     });
 
     // Respond to request
