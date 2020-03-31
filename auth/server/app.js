@@ -6,6 +6,7 @@ const app = express();
 const router = require('./router');
 const mongoose = require('mongoose');
 const key = require('./info/keys');
+const cors = require('cors');
 
 // DB setup
 //console.log(key);
@@ -16,6 +17,7 @@ mongoose.connect(`mongodb+srv://pg:${key}@cluster0-ciic4.mongodb.net/test?retryW
 
 // Application Setup
 app.use(morgan('combined'));
+app.use(cors());
 app.use(bodyParser.json({ type: '*/*'})); 
 router(app);
 
