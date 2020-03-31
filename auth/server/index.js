@@ -1,23 +1,5 @@
-const express = require('express');
+const app = require('./app');
 const http = require('http');
-const bodyParser = require('body-parser');
-const morgan = require('morgan');
-const app = express();
-const router = require('./router');
-const mongoose = require('mongoose');
-const key = require('./info/keys');
-
-// DB setup
-//console.log(key);
-// console.log(`mongodb+srv://pg:${key}@cluster0-ciic4.mongodb.net/test?retryWrites=true&w=majority`);
-mongoose.connect(`mongodb+srv://pg:${key}@cluster0-ciic4.mongodb.net/test?retryWrites=true&w=majority`, { useNewUrlParser: true})
-.then(() => console.log("SUCCESSFULLY CONNECTED TO THE DATABASE"))
-.catch(e => console.log("There was an error in connecting to the database", e),);
-
-// Application Setup
-app.use(morgan('combined'));
-app.use(bodyParser.json({ type: '*/*'})); 
-router(app);
 
 // Server Setup
 const PORT = process.env.PORT || 3090;
