@@ -1,0 +1,21 @@
+.profile-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-read {
+    flex-grow: 1;
+    background-color: teal;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile-update {
+    flex-grow: 1;
+    background-color: red;
+}
+
+.profile-update input {
+    max-width: 50%;
+}
