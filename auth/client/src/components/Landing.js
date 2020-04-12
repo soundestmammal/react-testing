@@ -32,7 +32,7 @@ class Landing extends Component {
                                         name="name"
                                         type="text"
                                         component='input'
-                                        autoComplete='none'
+                                        autoComplete='off'
                                     />
                                 </fieldset>
                                 <fieldset>
@@ -71,7 +71,7 @@ class Landing extends Component {
                                         autoComplete="none"
                                     />
                                 </fieldset>
-                                <button class>Get Started</button>
+                                <button>Get Started</button>
                             </form>
                         </div>
                     </div>
