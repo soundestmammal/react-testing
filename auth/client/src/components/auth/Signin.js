@@ -8,7 +8,7 @@ class Signin extends Component {
 
     onSubmit = (formProps) => {
         this.props.signin(formProps, () => {
-            this.props.history.push('/feature');
+            this.props.history.push('/dashboard');
         });
 
     };
@@ -24,7 +24,7 @@ class Signin extends Component {
                         name="email"
                         type="text"
                         component="input"
-                        autoComplete="none"
+                        autoComplete="off"
                     />
                 </fieldset>
                 <fieldset>
@@ -33,7 +33,7 @@ class Signin extends Component {
                     name="password"
                     type="password"
                     component="input"
-                    autoComplete="none"
+                    autoComplete="off"
                     />
                 </fieldset>
                 <div>{this.props.errorMessage}</div>
