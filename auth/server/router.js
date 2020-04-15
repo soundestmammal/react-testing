@@ -12,4 +12,7 @@ module.exports = function(app) {
     });
     app.post('/signin', requireSignin, Authentication.signin);
     app.post('/signup', Authentication.signup);
+
+    // Profile routes?
+    app.post('/updateprofile', requireAuth, Authentication.updateprofile);
 }
