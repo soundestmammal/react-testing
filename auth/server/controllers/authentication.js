@@ -45,3 +45,21 @@ exports.signup = function(req, res, next) {
     });
 
 }
+
+exports.updateprofile = async function(req, res, next) {
+    const first = req.body.first;
+    const last = req.body.last;
+    const uid = req.body.uid;
+
+    if(!first || !last) {
+        return res.status(422).send({ error: "You must provide a first and last name"});
+    }
+
+    User.findByIdAndUpdate(uid, {first: first, last: last}, function(err, result) {
+        if(err) {
+            res.send(err);
+        } else {
+            res.send(result);
+        }
+    });
+}
