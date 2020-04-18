@@ -30,9 +30,9 @@ class Profile extends Component {
         // this.state.first ... last
         alert('Information was submitted.')
         event.preventDefault();
-        console.log(this.state.first);
-        console.log(this.state.last);
-
+        // console.log(this.state.first);
+        // console.log(this.state.last);
+        console.log("This is the authenticated part of the state", this.props.auth)
         // Call a function here, that is an action creator
         this.props.updateProfile(this.state.first, this.state.last);
     }
@@ -63,4 +63,8 @@ class Profile extends Component {
     }
 }
 
-export default connect(null, actions)(Profile);
+const mapStateToProps = (state) => {
+    return { auth: state.auth.authenticated };
+}
+
+export default connect(mapStateToProps, actions)(Profile);

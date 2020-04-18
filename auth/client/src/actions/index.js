@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { AUTH_USER, AUTH_ERROR } from './types';
+import { AUTH_USER, AUTH_ERROR, PROFILE_UPDATE } from './types';
 
 export const signup = (formProps, callback) => async dispatch => {
     try {
@@ -27,5 +27,25 @@ export const signin = (formProps, callback) => async dispatch => {
         callback();
     } catch (e) {
         dispatch({ type: AUTH_ERROR, payload: 'Invalid Credentials' });
+    }
+}
+
+// I should make an action creator here that fetchProfile
+
+// I should make an action creator here that updateProfile
+export const updateProfile = (first, last) => async dispatch => {
+    console.log("This is the update profile action creator");
+    console.log(`First Name: ${first}`);
+    console.log(`Last Name: ${last}`);
+    try {
+        // I need to submit a post request to an endpoint
+
+        const response = await axios.post('http://localhost:3090/updateprofile', { first, last });
+        // Data: I need to provide the first, last, and userId
+
+
+        dispatch({ type: PROFILE_UPDATE });
+    } catch (e) {
+        dispatch( { type: PROFILE_UPDATE })
     }
 }
